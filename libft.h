@@ -6,7 +6,7 @@
 /*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:48:24 by mminasya          #+#    #+#             */
-/*   Updated: 2025/01/26 15:41:21 by mminasya         ###   ########.fr       */
+/*   Updated: 2025/01/28 20:00:40 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,10 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strdup(char *src);
 void	*ft_memmove(void *dst, const void *src, size_t len);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+void	*ft_calloc(size_t count, size_t size);
+int		ft_atoi(const char *str);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strjoin(char const *s1, char const *s2);
 #endif

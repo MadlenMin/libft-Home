@@ -6,7 +6,7 @@
 #    By: mminasya <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 18:08:48 by mminasya          #+#    #+#              #
-#    Updated: 2025/01/26 13:43:03 by mminasya         ###   ########.fr        #
+#    Updated: 2025/01/28 15:20:03 by mminasya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRS = $(wildcard *.c)
 OBJ = $(SRS:%.c=%.o)
 HEADER = libft.h
 NAME = libft.a
-LIB = ar rc
+LIB = ar rcs
 
 all: $(NAME)
 
@@ -32,7 +32,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 
 	

@@ -1,46 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 20:03:58 by mminasya          #+#    #+#             */
-/*   Updated: 2025/01/28 19:57:14 by mminasya         ###   ########.fr       */
+/*   Created: 2025/01/28 17:30:03 by mminasya          #+#    #+#             */
+/*   Updated: 2025/01/28 20:04:56 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int			i;
-	char		*copy;
+	int		i;
+	int		len;
+	char	*buffer;
 
+	len = ft_strlen(s);
 	i = 0;
-	copy = (char *)malloc(ft_strlen(src) + 1);
-	if (!copy)
+	if (!s)
 		return (NULL);
-	while (src[i])
+	buffer = (char *)malloc(len + 1);
+	if (!buffer)
+		return (NULL);
+	while (s[i])
 	{
-		copy[i] = src[i];
+		buffer[i] = f(i, s[i]);
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	buffer[i] = '\0';
+	return (buffer);
 }
-/*
-#include <stdio.h>
-
-int main() {
-    char *original = "Hello, World!";
-    char *duplicate = ft_strdup(original);
-
- 
-     printf("Original: %s\n", original);
-     printf("Duplicate: %s\n", duplicate);
-     //free(duplicate); 
-
-    return 0;
-}*/

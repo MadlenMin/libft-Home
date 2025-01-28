@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 15:25:36 by mminasya          #+#    #+#             */
-/*   Updated: 2025/01/28 12:46:45 by mminasya         ###   ########.fr       */
+/*   Created: 2025/01/28 15:37:07 by mminasya          #+#    #+#             */
+/*   Updated: 2025/01/28 16:26:28 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t				i;
-	unsigned char		*a;
-	const unsigned char	*b;
+	void	*tmp;
+	int		len;
 
-	a = (unsigned char *)dst;
-	b = (const unsigned char *)src;
-	if (a < b)
-		ft_memcpy(a, b, len);
-	else if (a > b)
+	len = count * size;
+	if (count == 0 || size == 0)
 	{
-		i = len;
-		while (i > 0)
-		{
-			i--;
-			a[i] = b[i];
-		}
+		count = 1;
+		size = 1;
 	}
-	return (dst);
+	tmp = malloc(len);
+	if (!tmp)
+		return (NULL);
+	ft_bzero(tmp, len);
+	return (tmp);
 }

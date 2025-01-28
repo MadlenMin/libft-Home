@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 21:11:02 by mminasya          #+#    #+#             */
-/*   Updated: 2025/01/28 12:15:20 by mminasya         ###   ########.fr       */
+/*   Created: 2025/01/28 11:31:51 by mminasya          #+#    #+#             */
+/*   Updated: 2025/01/28 12:50:57 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	count;
 	size_t	i;
+	size_t	needle_len;
 
-	count = 0;
+	needle_len = ft_strlen(needle);
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] && s2[i] \
-			&& (unsigned char)s1[i] == (unsigned char)s2[i] && i < n - 1)
+	if (*needle == '\0')
+		return ((char *)haystack);
+	while (haystack[i] && i + needle_len <= len)
 	{
+		if (ft_strncmp(&haystack[i], needle, needle_len) == 0)
+			return ((char *)&haystack[i]);
 		i++;
 	}
-	count = (unsigned char)s1[i] - (unsigned char)s2[i];
-	return (count);
+	return (NULL);
 }
 /*
-#include <stdio.h>
-
 int main()
 {
-	//char he[] = "test\200";
-	//char ha[] = "test\0";
-	printf("%d", ft_strncmp("test\200","test\0",6));
-
+	char haystack[] = "Heylo , love you";
+	char needle[] = "love";
+	printf("test 1 : %s\n" , ft_strnstr(haystack , needle, 14));
+	return 0;
 }*/
