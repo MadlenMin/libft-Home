@@ -6,12 +6,11 @@
 /*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 20:03:58 by mminasya          #+#    #+#             */
-/*   Updated: 2025/01/28 19:57:14 by mminasya         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:43:42 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(char *src)
 {

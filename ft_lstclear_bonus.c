@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bouns.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mminasya <mminasya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 14:40:04 by mminasya          #+#    #+#             */
-/*   Updated: 2025/02/02 22:40:25 by mminasya         ###   ########.fr       */
+/*   Created: 2025/02/02 19:59:36 by mminasya          #+#    #+#             */
+/*   Updated: 2025/02/02 22:38:31 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned char			*a;
-	const unsigned char		*b;
+	t_list	*tmp;
 
-	a = (unsigned char *)s1;
-	b = (unsigned char *)s2;
-	while (n--)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (*a != *b)
-			return (*a - *b);
-		a++;
-		b++;
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
 	}
-	return (0);
+	*lst = NULL;
 }

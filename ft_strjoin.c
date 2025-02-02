@@ -6,12 +6,11 @@
 /*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:29:20 by mminasya          #+#    #+#             */
-/*   Updated: 2025/01/28 20:03:36 by mminasya         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:44:28 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mminasya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mminasya <mminasya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 14:40:04 by mminasya          #+#    #+#             */
-/*   Updated: 2025/02/02 22:40:25 by mminasya         ###   ########.fr       */
+/*   Created: 2025/02/02 16:39:21 by mminasya          #+#    #+#             */
+/*   Updated: 2025/02/02 22:39:33 by mminasya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	unsigned char			*a;
-	const unsigned char		*b;
+	t_list	*new;
 
-	a = (unsigned char *)s1;
-	b = (unsigned char *)s2;
-	while (n--)
-	{
-		if (*a != *b)
-			return (*a - *b);
-		a++;
-		b++;
-	}
-	return (0);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = (NULL);
+	return (new);
 }
